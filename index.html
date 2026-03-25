@@ -1,164 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>NW Pressure Washers</title>
+  <meta charset="UTF-8">
+  <title>NW Pressure Washers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #111;
+      line-height: 1.5;
+    }
 
-<style>
+    header {
+      background: #0a2540;
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
 
-body{
-font-family: Arial;
-margin:0;
-background:#f5f7fa;
-}
+    h1 {
+      margin: 0;
+      font-size: 42px;
+    }
 
-header{
-background:#0a2540;
-color:white;
-padding:60px 20px;
-text-align:center;
-}
+    h2 {
+      margin-bottom: 20px;
+      font-size: 30px;
+      color: #0a2540;
+    }
 
-h1{
-margin:0;
-font-size:40px;
-}
+    p {
+      font-size: 18px;
+    }
 
-button{
-background:#2da44e;
-border:none;
-padding:15px 25px;
-font-size:18px;
-border-radius:6px;
-cursor:pointer;
-margin-top:20px;
-}
+    .subheadline {
+      max-width: 700px;
+      margin: 20px auto 0;
+      font-size: 20px;
+      color: #d7e2ee;
+    }
 
-section{
-max-width:1000px;
-margin:auto;
-padding:50px 20px;
-}
+    .cta-row {
+      margin-top: 30px;
+    }
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .btn {
+      display: inline-block;
+      background: #2da44e;
+      color: white;
+      text-decoration: none;
+      border: none;
+      padding: 15px 26px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 8px;
+      font-weight: bold;
+    }
 
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
+    .btn.secondary {
+      background: white;
+      color: #0a2540;
+    }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:10px;
-}
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
 
-.gallery img{
-width:100%;
-border-radius:8px;
-}
+    .services,
+    .gallery,
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-.contact{
-background:#0a2540;
-color:white;
-text-align:center;
-padding:50px 20px;
-}
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
 
-</style>
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .service-area {
+      font-size: 19px;
+      max-width: 750px;
+    }
+
+    .contact {
+      background: #0a2540;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    .contact a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .small {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
+    <h1>NW Pressure Washers</h1>
 
-<h1>NW Pressure Washers</h1>
+    <p class="subheadline">
+      Premium pressure washing for Georgetown, Northwest DC, and nearby neighborhoods.
+      We clean driveways, patios, fences, walkways, and home exteriors.
+    </p>
 
-<p>Professional Pressure Washing in Washington DC</p>
+    <p><strong>Call or Text: 202-679-6219</strong></p>
 
-<p><b>Call or Text: 202-679-6219</b></p>
+    <div class="cta-row">
+      <a class="btn" href="sms:2026796219">Text for a Free Quote</a>
+      <a class="btn secondary" href="mailto:ethan@nwpressurewashers.com">Email Us</a>
+    </div>
+  </header>
 
-<button onclick="location.href='mailto:ethan@nwpressurewashers.com'">
-Request a Free Quote
-</button>
+  <section>
+    <h2>Our Services</h2>
 
-</header>
+    <div class="services">
+      <div class="card">
+        <h3>House Washing</h3>
+        <p>Safe soft washing to remove dirt, algae, mildew, and surface buildup without damaging your home.</p>
+      </div>
 
-<section>
+      <div class="card">
+        <h3>Driveway Cleaning</h3>
+        <p>Deep surface cleaning that brightens concrete, removes grime, and improves curb appeal fast.</p>
+      </div>
 
-<h2>Our Services</h2>
+      <div class="card">
+        <h3>Deck & Patio Cleaning</h3>
+        <p>Professional washing for outdoor spaces so they look cleaner, brighter, and ready to use again.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="services">
+  <section>
+    <h2>Why Homeowners Choose Us</h2>
 
-<div class="card">
-<h3>House Washing</h3>
-<p>Safe soft-washing to remove dirt, algae, and mildew.</p>
-</div>
+    <div class="trust-grid">
+      <div class="card">
+        <h3>Fast Quotes</h3>
+        <p>We respond quickly and make scheduling easy.</p>
+      </div>
 
-<div class="card">
-<h3>Driveway Cleaning</h3>
-<p>Deep pressure cleaning that restores concrete and removes stains.</p>
-</div>
+      <div class="card">
+        <h3>Detail-Oriented Work</h3>
+        <p>We focus on visible results and clean finishes.</p>
+      </div>
 
-<div class="card">
-<h3>Deck & Patio Cleaning</h3>
-<p>Restore outdoor spaces with professional washing.</p>
-</div>
+      <div class="card">
+        <h3>Local Service</h3>
+        <p>We proudly serve Georgetown, NW DC, and nearby neighborhoods.</p>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section>
+    <h2>Before & After</h2>
+    <p class="small">Replace these with your real project photos for much better results.</p>
 
-</section>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Exterior cleaning example 1">
+      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Exterior cleaning example 2">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Exterior cleaning example 3">
+    </div>
+  </section>
 
-<section>
+  <section>
+    <h2>Service Areas</h2>
+    <p class="service-area">
+      We proudly serve Georgetown, Northwest DC, Arlington, Bethesda, Chevy Chase, and surrounding areas.
+    </p>
+  </section>
 
-<h2>Before & After</h2>
-
-<div class="gallery">
-
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-
-<img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3">
-
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Service Areas</h2>
-
-<p>We proudly serve:</p>
-
-<ul>
-<li>Georgetown</li>
-<li>Arlington</li>
-<li>Bethesda</li>
-<li>Chevy Chase</li>
-<li>Washington DC</li>
-</ul>
-
-</section>
-
-<div class="contact">
-
-<h2>Get a Free Quote</h2>
-
-<p>Call or text anytime</p>
-
-<h3>202-679-6219</h3>
-
-<p>Email: ethan@nwpressurewashers.com</p>
-
-</div>
+  <div class="contact">
+    <h2>Get a Free Quote</h2>
+    <p>Call, text, or email anytime.</p>
+    <h3><a href="tel:2026796219">202-679-6219</a></h3>
+    <p><a href="mailto:ethan@nwpressurewashers.com">ethan@nwpressurewashers.com</a></p>
+  </div>
 
 </body>
 </html>
