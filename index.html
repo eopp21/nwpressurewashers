@@ -248,6 +248,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 22px;
+      align-items: stretch;
     }
 
     .photo-card {
@@ -255,18 +256,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fff;
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 420px;
     }
 
     .photo-card img {
-      width: auto;
+      width: 100%;
+      height: 100%;
       max-width: 100%;
-      height: auto;
-      max-height: 460px;
+      max-height: 100%;
       object-fit: contain;
       object-position: center;
       display: block;
       background: transparent;
+      border-radius: 18px;
     }
 
     .areas {
@@ -382,14 +389,19 @@
         min-height: 360px;
       }
 
-      .photo-card img {
+      .photo-card {
         min-height: 320px;
-        height: 320px;
+      }
+
+      .photo-card img {
+        width: 100%;
+        height: auto;
       }
 
       .contact-actions {
         margin-top: 6px;
       }
+    }
     }
 
     @media (max-width: 560px) {
@@ -480,29 +492,7 @@
       </div>
     </section>
 
-    <section class="section" id="results">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Recent project photos</h2>
-          </div>
-          <p>
-            Real photos from recent jobs make the business look more established and more credible than stock images.
-          </p>
-        </div>
-
-        <div class="gallery-row">
-          <div class="card photo-card">
-            <img src="IMG_2303.jpeg" alt="Additional NW Pressure Washers project photo" />
-          </div>
-          <div class="card photo-card">
-            <img src="CleanWalkway.jpg" alt="Freshly cleaned walkway" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="video">
+    <section class="section">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -538,7 +528,7 @@
             <img src="IMG_4196.jpg" alt="Additional NW Pressure Washers project photo" />
           </div>
           <div class="card photo-card">
-            <img src="IMG_0027-3.jpeg" alt="NW Pressure Washers team photo with equipment" />
+            <img src="IMG_2303.jpg" alt="Pressure washing a brick entry path" />
           </div>
         </div>
       </div>
@@ -627,7 +617,6 @@
   </main>
 </body>
 </html>
-
 
 
 
