@@ -302,19 +302,16 @@
   align-items: center;
   background: #0a2540;
   border-radius: 24px;
-  overflow: visible;
-  padding: 20px;
+  overflow: hidden; /* THIS is the key */
+  padding: 0;
+  max-height: 500px; /* controls how much gets cropped */
 }
 
 .video-shell video {
-  display: block;
   width: auto;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: auto;
-  transform: scaleY(1.29);
-  border-radius: 16px;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
 }
     .contact-band {
       margin: 26px 0 60px;
