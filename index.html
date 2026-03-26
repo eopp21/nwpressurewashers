@@ -9,7 +9,6 @@
       --navy: #0f2236;
       --navy-soft: #17314d;
       --green: #2f8f5b;
-      --green-dark: #237047;
       --bg: #f4f7fb;
       --text: #12202e;
       --muted: #5b6b79;
@@ -57,7 +56,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(12px);
-      background: rgba(244, 247, 251, 0.86);
+      background: rgba(244, 247, 251, 0.9);
       border-bottom: 1px solid rgba(15, 34, 54, 0.06);
     }
 
@@ -107,7 +106,7 @@
       padding: 8px 14px;
       border-radius: 999px;
       background: rgba(47, 143, 91, 0.1);
-      color: var(--green-dark);
+      color: var(--green);
       font-weight: 700;
       font-size: 0.88rem;
       margin-bottom: 18px;
@@ -245,15 +244,9 @@
       font-size: 1rem;
     }
 
-    .two-col {
+    .gallery-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
@@ -264,25 +257,10 @@
 
     .photo-card img {
       width: 100%;
-      height: 100%;
-      min-height: 420px;
+      height: 360px;
       object-fit: cover;
       object-position: center;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .feature-item {
-      background: rgba(15, 34, 54, 0.03);
-      border: 1px solid rgba(15, 34, 54, 0.05);
-      border-radius: 16px;
-      padding: 14px 16px;
-      color: var(--navy);
-      font-weight: 600;
+      display: block;
     }
 
     .areas {
@@ -303,20 +281,23 @@
     }
 
     .video-shell {
-      position: relative;
-      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0a2540;
       border-radius: 24px;
       overflow: hidden;
+      padding: 20px;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(15, 34, 54, 0.08);
     }
 
     .video-shell video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      object-fit: cover;
-      object-position: center;
+      display: block;
+      max-width: 100%;
+      max-height: 650px;
+      width: auto;
+      height: auto;
+      border-radius: 16px;
     }
 
     .contact-band {
@@ -370,9 +351,8 @@
     @media (max-width: 900px) {
       .hero-grid,
       .grid-3,
-      .two-col,
-      .contact-band,
-      .gallery-grid {
+      .gallery-row,
+      .contact-band {
         grid-template-columns: 1fr;
         display: grid;
       }
@@ -398,34 +378,7 @@
 
       .photo-card img {
         min-height: 320px;
-      }
-
-      .contact-actions {
-        margin-top: 6px;
-      }
-    }
-
-      .nav {
-        flex-direction: column;
-        justify-content: center;
-        padding: 14px 0;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .hero {
-        padding-top: 34px;
-      }
-
-      .hero-card img {
-        min-height: 360px;
-      }
-
-      .photo-card img {
-        min-height: 320px;
+        height: 320px;
       }
 
       .contact-actions {
@@ -459,9 +412,9 @@
       <a class="brand" href="#top">NW Pressure Washers</a>
       <div class="nav-links">
         <a href="#services">Services</a>
-        <a href="#results">Results</a>
-        <a href="#areas">Areas</a>
+        <a href="#results">Photos</a>
         <a href="#video">Video</a>
+        <a href="#areas">Areas</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -528,17 +481,81 @@
             <h2>Recent project photos</h2>
           </div>
           <p>
-            Real photos from your jobs make the business feel much more established than stock imagery.
+            Real photos from recent jobs make the business look more established and more credible than stock images.
           </p>
         </div>
 
-        <div class="gallery-grid">
+        <div class="gallery-row">
           <div class="card photo-card">
             <img src="IMG_2365.jpeg" alt="Pressure washing a driveway and retaining wall" />
           </div>
           <div class="card photo-card">
             <img src="CleanWalkway.jpg" alt="Freshly cleaned walkway" />
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Project video</h2>
+          </div>
+          <p>
+            A short clip showing the work in action helps the site feel current, real, and professional.
+          </p>
+        </div>
+
+        <div class="video-shell">
+          <video controls autoplay muted loop playsinline poster="IMG_2365.jpeg">
+            <source src="pressurewashing-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>More project results</h2>
+          </div>
+          <p>
+            Additional photos help show range, consistency, and the people behind the business.
+          </p>
+        </div>
+
+        <div class="gallery-row">
+          <div class="card photo-card">
+            <img src="IMG_4196.jpg" alt="Additional NW Pressure Washers project photo" />
+          </div>
+          <div class="card photo-card">
+            <img src="IMG_0027 3.jpeg" alt="NW Pressure Washers team photo with equipment" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="areas">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Service areas</h2>
+          </div>
+          <p>
+            Focused on neighborhoods where presentation matters and homeowners value responsive, polished service.
+          </p>
+        </div>
+
+        <div class="areas">
+          <div class="pill">Georgetown</div>
+          <div class="pill">Northwest DC</div>
+          <div class="pill">Chevy Chase</div>
+          <div class="pill">Bethesda</div>
+          <div class="pill">Arlington</div>
+          <div class="pill">Nearby neighborhoods</div>
         </div>
       </div>
     </section>
