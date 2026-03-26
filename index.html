@@ -302,17 +302,21 @@
   align-items: center;
   background: #0a2540;
   border-radius: 24px;
-  overflow: hidden;
+  overflow: visible;
   padding: 20px;
 }
 
 .video-shell video {
+  display: block;
+  width: auto;
   max-width: 100%;
   height: auto;
+  max-height: none;
+  object-fit: contain;
+  aspect-ratio: auto;
   border-radius: 16px;
+  background: transparent;
 }
-
-
     .contact-band {
       margin: 26px 0 60px;
       background: linear-gradient(135deg, var(--navy), var(--navy-soft));
