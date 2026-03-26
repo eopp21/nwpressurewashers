@@ -251,6 +251,12 @@
       gap: 22px;
     }
 
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
     .photo-card {
       overflow: hidden;
       padding: 0;
@@ -296,22 +302,22 @@
       box-shadow: 0 8px 18px rgba(15, 34, 54, 0.04);
     }
 
-.video-shell {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #0a2540;
-  border-radius: 24px;
-  overflow: hidden;
-  height: 500px; /* fixed height */
-}
+    .video-shell {
+      position: relative;
+      background: #000;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 34, 54, 0.08);
+    }
 
-.video-shell video {
-  height: 100%;
-  width: auto;
-  object-fit: cover;
-}
-  transform: translateY(-5%);
+    .video-shell video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      object-fit: cover;
+      object-position: center;
+    }
 
     .contact-band {
       margin: 26px 0 60px;
@@ -365,10 +371,39 @@
       .hero-grid,
       .grid-3,
       .two-col,
-      .contact-band {
+      .contact-band,
+      .gallery-grid {
         grid-template-columns: 1fr;
         display: grid;
       }
+
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-card img {
+        min-height: 360px;
+      }
+
+      .photo-card img {
+        min-height: 320px;
+      }
+
+      .contact-actions {
+        margin-top: 6px;
+      }
+    }
 
       .nav {
         flex-direction: column;
@@ -457,47 +492,7 @@
         </div>
       </div>
     </section>
-<section class="section">
-  <div class="wrap two-col">
-    <div class="card">
-      <div class="section-head" style="margin-bottom: 0; display: block;">
-        <h2>Walkways and detail work</h2>
-      </div>
-      <p>
-        Smaller surfaces matter too. A clean walkway, entrance path, or side approach can make the whole property feel sharper and more maintained.
-      </p>
-      <div class="feature-list">
-        <div class="feature-item">Great visual proof for homeowners</div>
-        <div class="feature-item">Strong add-on service for existing jobs</div>
-        <div class="feature-item">Helps showcase attention to detail</div>
-      </div>
-    </div>
-    <div class="card photo-card">
-      <img src="CleanWalkway.jpg" alt="Freshly cleaned walkway" />
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="wrap two-col">
-    <div class="card photo-card">
-      <img src="IMG_4196.jpg" alt="Additional NW Pressure Washers project photo" />
-    </div>
-    <div class="card">
-      <div class="section-head" style="margin-bottom: 0; display: block;">
-        <h2>More project results</h2>
-      </div>
-      <p>
-        Adding multiple real project photos makes the business feel established and consistent. As you do more jobs, this section can become a rotating gallery of your best results.
-      </p>
-      <div class="feature-list">
-        <div class="feature-item">Builds trust through real project history</div>
-        <div class="feature-item">Shows range across different surfaces</div>
-        <div class="feature-item">Makes the site feel more premium and complete</div>
-      </div>
-    </div>
-  </div>
-</section>
     <section class="section" id="services">
       <div class="wrap">
         <div class="section-head">
@@ -527,106 +522,24 @@
     </section>
 
     <section class="section" id="results">
-      <div class="wrap two-col">
-        <div class="card photo-card">
-          <img src="IMG_2365.jpeg" alt="Pressure washing a driveway and retaining wall" />
-        </div>
-        <div class="card">
-          <div class="section-head" style="margin-bottom: 0; display: block;">
-            <h2>Real work, not stock photos</h2>
-          </div>
-          <p>
-            Using your own project photos immediately makes the business feel more legitimate. This image already works far better than generic exterior shots because it shows the actual service in progress, on a real property, with your equipment.
-          </p>
-          <div class="feature-list">
-            <div class="feature-item">Actual on-site photo from your work</div>
-            <div class="feature-item">Strong visual for driveways, walls, and curb appeal</div>
-            <div class="feature-item">Better trust than generic house imagery</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap two-col">
-        <div class="card">
-          <div class="section-head" style="margin-bottom: 0; display: block;">
-            <h2>Walkways and detail work</h2>
-          </div>
-          <p>
-            Smaller surfaces matter too. A clean walkway, entrance path, or side approach can make the whole property feel sharper and more maintained.
-          </p>
-          <div class="feature-list">
-            <div class="feature-item">Great visual proof for homeowners</div>
-            <div class="feature-item">Strong add-on service for existing jobs</div>
-            <div class="feature-item">Helps showcase attention to detail</div>
-          </div>
-        </div>
-        <div class="card photo-card">
-          <img src="CleanWalkway.jpg" alt="Freshly cleaned walkway" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap two-col">
-        <div class="card photo-card">
-          <img src="IMG_4196.jpg" alt="Additional NW Pressure Washers project photo" />
-        </div>
-        <div class="card">
-          <div class="section-head" style="margin-bottom: 0; display: block;">
-            <h2>More project results</h2>
-          </div>
-          <p>
-            Adding multiple real project photos makes the business feel established and consistent. As you do more jobs, this section can become a rotating gallery of your best results.
-          </p>
-          <div class="feature-list">
-            <div class="feature-item">Builds trust through real project history</div>
-            <div class="feature-item">Shows range across different surfaces</div>
-            <div class="feature-item">Makes the site feel more premium and complete</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="areas">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <h2>Service areas</h2>
+            <h2>Recent project photos</h2>
           </div>
           <p>
-            Focused on neighborhoods where presentation matters and homeowners value fast, polished service.
+            Real photos from your jobs make the business feel much more established than stock imagery.
           </p>
         </div>
 
-        <div class="areas">
-          <div class="pill">Georgetown</div>
-          <div class="pill">Northwest DC</div>
-          <div class="pill">Chevy Chase</div>
-          <div class="pill">Bethesda</div>
-          <div class="pill">Arlington</div>
-          <div class="pill">Nearby neighborhoods</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="video">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Project video</h2>
+        <div class="gallery-grid">
+          <div class="card photo-card">
+            <img src="IMG_2365.jpeg" alt="Pressure washing a driveway and retaining wall" />
           </div>
-          <p>
-            Add a short clip here. You can either let it autoplay muted on repeat, or remove autoplay/loop and let visitors press play.
-          </p>
+          <div class="card photo-card">
+            <img src="CleanWalkway.jpg" alt="Freshly cleaned walkway" />
+          </div>
         </div>
-
-   <div class="video-shell">
-  <video autoplay muted loop playsinline>
-    <source src="pressurewashing-video.mp4" type="video/mp4" />
-  </video>
-</div>
       </div>
     </section>
 
@@ -651,4 +564,5 @@
   </main>
 </body>
 </html>
+
 
