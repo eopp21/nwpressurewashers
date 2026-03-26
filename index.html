@@ -296,14 +296,21 @@
       box-shadow: 0 8px 18px rgba(15, 34, 54, 0.04);
     }
 
-    .video-shell {
-      position: relative;
-      background: #000;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(15, 34, 54, 0.08);
-    }
+  .video-shell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0a2540; /* same as your theme */
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.video-shell video {
+  height: 500px;
+  width: auto;
+  border-radius: 16px;
+}
 
    .video-shell video {
   width: 100%;
@@ -622,12 +629,11 @@
           </p>
         </div>
 
-        <div class="video-shell">
-          <video controls autoplay muted loop playsinline poster="IMG_2365.jpeg">
-            <source src="pressurewashing-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+   <div class="video-shell">
+  <video autoplay muted loop playsinline>
+    <source src="pressurewashing-video.mp4" type="video/mp4" />
+  </video>
+</div>
       </div>
     </section>
 
