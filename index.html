@@ -1,212 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NW Pressure Washers</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f7fa;
-      color: #111;
-      line-height: 1.5;
+    :root {
+      --navy: #0f2236;
+      --navy-soft: #17314d;
+      --green: #2f8f5b;
+      --green-dark: #237047;
+      --bg: #f4f7fb;
+      --text: #12202e;
+      --muted: #5b6b79;
+      --card: #ffffff;
+      --border: rgba(15, 34, 54, 0.08);
+      --shadow: 0 18px 40px rgba(15, 34, 54, 0.08);
+      --radius: 20px;
+      --max: 1120px;
     }
 
-    header {
-      background: #0a2540;
-      color: white;
-      padding: 70px 20px;
-      text-align: center;
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(244, 247, 251, 0.86);
+      border-bottom: 1px solid rgba(15, 34, 54, 0.06);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(47, 143, 91, 0.1);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
     }
 
     h1 {
       margin: 0;
-      font-size: 42px;
+      font-size: clamp(2.5rem, 5vw, 4.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      color: var(--navy);
     }
 
-    h2 {
-      margin-bottom: 20px;
-      font-size: 30px;
-      color: #0a2540;
-    }
-
-    p {
-      font-size: 18px;
-    }
-
-    .subheadline {
-      max-width: 700px;
-      margin: 20px auto 0;
-      font-size: 20px;
-      color: #d7e2ee;
+    .hero p {
+      margin: 20px 0 0;
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 650px;
     }
 
     .cta-row {
-      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
     }
 
     .btn {
-      display: inline-block;
-      background: #2da44e;
-      color: white;
-      text-decoration: none;
-      border: none;
-      padding: 15px 26px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 8px;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.18s ease;
+      border: 1px solid transparent;
     }
 
-    .btn.secondary {
-      background: white;
-      color: #0a2540;
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      box-shadow: var(--shadow);
     }
 
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #0b1b2d;
     }
 
-    .services,
-    .gallery,
-    .trust-grid {
+    .btn-secondary {
+      background: #fff;
+      color: var(--navy);
+      border-color: rgba(15, 34, 54, 0.12);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: rgba(15, 34, 54, 0.22);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #fff, #f8fbff);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      letter-spacing: -0.03em;
+      color: var(--navy);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
     .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
     }
 
-    .gallery img {
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+      color: var(--navy);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .photo-card img {
       width: 100%;
-      border-radius: 10px;
-      display: block;
-      height: 260px;
+      height: 100%;
+      min-height: 420px;
       object-fit: cover;
+      object-position: center;
     }
 
-    .service-area {
-      font-size: 19px;
-      max-width: 750px;
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
     }
 
-    .contact {
-      background: #0a2540;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
+    .feature-item {
+      background: rgba(15, 34, 54, 0.03);
+      border: 1px solid rgba(15, 34, 54, 0.05);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: var(--navy);
+      font-weight: 600;
     }
 
-    .contact h2 {
-      color: white;
+    .areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
     }
 
-    .contact a {
-      color: white;
-      text-decoration: none;
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(15, 34, 54, 0.1);
+      color: var(--navy);
+      font-weight: 600;
+      box-shadow: 0 8px 18px rgba(15, 34, 54, 0.04);
     }
 
-    .small {
-      font-size: 16px;
-      opacity: 0.9;
+    .video-shell {
+      position: relative;
+      background: #000;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 34, 54, 0.08);
+    }
+
+    .video-shell video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .contact-band {
+      margin: 26px 0 60px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+      color: #fff;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .contact-band h2 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .contact-band p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      max-width: 620px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-actions .btn-primary {
+      background: #fff;
+      color: var(--navy);
+    }
+
+    .contact-actions .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    footer {
+      padding: 0 0 44px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .two-col,
+      .contact-band {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-card img {
+        min-height: 360px;
+      }
+
+      .photo-card img {
+        min-height: 320px;
+      }
+
+      .contact-actions {
+        margin-top: 6px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      h1 {
+        font-size: 2.45rem;
+      }
+
+      .card,
+      .contact-band {
+        padding: 20px;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
-
 <body>
-
-  <header>
-    <h1>NW Pressure Washers</h1>
-
-    <p class="subheadline">
-      Premium pressure washing for Georgetown, Northwest DC, and nearby neighborhoods.
-      We clean driveways, patios, fences, walkways, and home exteriors.
-    </p>
-
-    <p><strong>Call or Text: 202-679-6219</strong></p>
-
-    <div class="cta-row">
-      <a class="btn" href="sms:2026796219">Text for a Free Quote</a>
-      <a class="btn secondary" href="mailto:ethan@nwpressurewashers.com">Email Us</a>
-    </div>
-  </header>
-
-  <section>
-    <h2>Our Services</h2>
-
-    <div class="services">
-      <div class="card">
-        <h3>House Washing</h3>
-        <p>Safe soft washing to remove dirt, algae, mildew, and surface buildup without damaging your home.</p>
-      </div>
-
-      <div class="card">
-        <h3>Driveway Cleaning</h3>
-        <p>Deep surface cleaning that brightens concrete, removes grime, and improves curb appeal fast.</p>
-      </div>
-
-      <div class="card">
-        <h3>Deck & Patio Cleaning</h3>
-        <p>Professional washing for outdoor spaces so they look cleaner, brighter, and ready to use again.</p>
+  <div class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top">NW Pressure Washers</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#areas">Areas</a>
+        <a href="#video">Video</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
-  </section>
-
-  <section>
-    <h2>Why Homeowners Choose Us</h2>
-
-    <div class="trust-grid">
-      <div class="card">
-        <h3>Fast Quotes</h3>
-        <p>We respond quickly and make scheduling easy.</p>
-      </div>
-
-      <div class="card">
-        <h3>Detail-Oriented Work</h3>
-        <p>We focus on visible results and clean finishes.</p>
-      </div>
-
-      <div class="card">
-        <h3>Local Service</h3>
-        <p>We proudly serve Georgetown, NW DC, and nearby neighborhoods.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Before & After</h2>
-    <p class="small">Replace these with your real project photos for much better results.</p>
-
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Exterior cleaning example 1">
-      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Exterior cleaning example 2">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Exterior cleaning example 3">
-    </div>
-  </section>
-
-  <section>
-    <h2>Service Areas</h2>
-    <p class="service-area">
-      We proudly serve Georgetown, Northwest DC, Arlington, Bethesda, Chevy Chase, and surrounding areas.
-    </p>
-  </section>
-
-  <div class="contact">
-    <h2>Get a Free Quote</h2>
-    <p>Call, text, or email anytime.</p>
-    <h3><a href="tel:2026796219">202-679-6219</a></h3>
-    <p><a href="mailto:ethan@nwpressurewashers.com">ethan@nwpressurewashers.com</a></p>
   </div>
 
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Professional exterior cleaning in DC</div>
+          <h1>Modern, reliable pressure washing for homes that need to look sharp.</h1>
+          <p>
+            We clean driveways, patios, walkways, retaining walls, and home exteriors with a focus on visible results, responsive communication, and professional service.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="sms:2026796219">Text for a free quote</a>
+            <a class="btn btn-secondary" href="mailto:ethan@nwpressurewashers.com">Email us</a>
+          </div>
+          <div class="hero-meta">
+            <span>Washington, DC</span>
+            <span>Georgetown, Bethesda, Chevy Chase, Arlington</span>
+            <span>Fast scheduling</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="IMG_2365.jpeg" alt="NW Pressure Washers cleaning a driveway in front of a brick home" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>What we clean</h2>
+          </div>
+          <p>
+            Straightforward service, fast communication, and a cleaner finish that improves curb appeal immediately.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Driveways</h3>
+            <p>Remove built-up grime, dark streaks, and surface dirt to brighten concrete and make entrances look cleaner.</p>
+          </div>
+          <div class="card">
+            <h3>Patios & walkways</h3>
+            <p>Refresh the spaces people actually use with deep surface cleaning that makes outdoor areas feel maintained again.</p>
+          </div>
+          <div class="card">
+            <h3>Homes, fences & walls</h3>
+            <p>Restore exterior surfaces with careful washing that improves appearance without making the process complicated.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="wrap two-col">
+        <div class="card photo-card">
+          <img src="IMG_2365.jpeg" alt="Pressure washing a driveway and retaining wall" />
+        </div>
+        <div class="card">
+          <div class="section-head" style="margin-bottom: 0; display: block;">
+            <h2>Real work, not stock photos</h2>
+          </div>
+          <p>
+            Using your own project photos immediately makes the business feel more legitimate. This image already works far better than generic exterior shots because it shows the actual service in progress, on a real property, with your equipment.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">Actual on-site photo from your work</div>
+            <div class="feature-item">Strong visual for driveways, walls, and curb appeal</div>
+            <div class="feature-item">Better trust than generic house imagery</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="areas">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Service areas</h2>
+          </div>
+          <p>
+            Focused on neighborhoods where presentation matters and homeowners value fast, polished service.
+          </p>
+        </div>
+
+        <div class="areas">
+          <div class="pill">Georgetown</div>
+          <div class="pill">Northwest DC</div>
+          <div class="pill">Chevy Chase</div>
+          <div class="pill">Bethesda</div>
+          <div class="pill">Arlington</div>
+          <div class="pill">Nearby neighborhoods</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Project video</h2>
+          </div>
+          <p>
+            Add a short clip here. You can either let it autoplay muted on repeat, or remove autoplay/loop and let visitors press play.
+          </p>
+        </div>
+
+        <div class="video-shell">
+          <video controls autoplay muted loop playsinline poster="IMG_2365.jpeg">
+            <source src="pressurewashing-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="contact-band">
+        <div>
+          <h2>Get a free quote</h2>
+          <p>
+            Call, text, or email anytime. We keep scheduling simple and respond quickly.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="tel:2026796219">Call 202-679-6219</a>
+          <a class="btn btn-secondary" href="mailto:ethan@nwpressurewashers.com">ethan@nwpressurewashers.com</a>
+        </div>
+      </div>
+
+      <footer>
+        NW Pressure Washers · Washington, DC
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
+
